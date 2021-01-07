@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "package": "redd90.betternether.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "betternether.refmap.json",
+  "mixins": [
+  	"ChunkGeneratorMixin",
+  	"ChunkSerializerMixin",
+	"DimensionTypeMixin",
+	"ServerWorldMixin",
+	"WorkbenchContainerMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
