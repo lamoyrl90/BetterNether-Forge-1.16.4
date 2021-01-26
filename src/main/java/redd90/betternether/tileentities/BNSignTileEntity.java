@@ -107,7 +107,7 @@ public class BNSignTileEntity extends TileEntity {
 		return this.write(new CompoundNBT());
 	}
 
-	public boolean copyItemDataRequiresOperator() {
+	public boolean onlyOpsCanSetNbt() {
 		return true;
 	}
 
@@ -133,8 +133,12 @@ public class BNSignTileEntity extends TileEntity {
 	}
 
 	public boolean onActivate(PlayerEntity playerIn) {
-		for(ITextComponent itextcomponent : this.text) {
-			Style style = itextcomponent == null ? null : itextcomponent.getStyle();
+		ITextComponent[] var2 = this.text;
+		int var3 = var2.length;
+
+		for (int var4 = 0; var4 < var3; ++var4) {
+			ITextComponent text = var2[var4];
+			Style style = text == null ? null : text.getStyle();
 			if (style != null && style.getClickEvent() != null) {
 				ClickEvent clickevent = style.getClickEvent();
 				if (clickevent.getAction() == ClickEvent.Action.RUN_COMMAND) {
